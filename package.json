@@ -1,0 +1,39 @@
+{
+  "name": "docezy-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "jest",
+    "test-w": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bijankundu/DocEzy-Backend.git"
+  },
+  "author": "Team DocEzy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bijankundu/DocEzy-Backend/issues"
+  },
+  "homepage": "https://github.com/bijankundu/DocEzy-Backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dayjs": "^1.10.7",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "helmet": "^5.0.1",
+    "http-status": "^1.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.5",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "@ngneat/falso": "^3.1.0",
+    "jest": "^27.5.1",
+    "supertest": "^6.2.2"
+  }
+}

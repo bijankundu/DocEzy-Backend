@@ -1,0 +1,58 @@
+{
+  "data": {
+    "results": {
+      "index_type": "DoctorSupplier",
+      "results": [
+        {
+          "id": "9671",
+          "supplier_id": "1481983304275961",
+          "doctor_id": "1481983295457720",
+          "name": "Dr. Shrikant Kulkarni",
+          "name_initials": "SK",
+          "url_slug": "pune/general-physician/dr-shrikant-kulkarni",
+          "photo": "https://doctorlistingingestionpr.azureedge.net/1481983295457720_2eb988d2357611ec91c826533a2fb59a_ProfilePic_Dr%20shrikant%20Kulkarni.jpg",
+          "bfhl_logo": false,
+          "specialities": [
+            { "name": "General Physician" },
+            { "name": "Allergy & Immunology" },
+            { "name": "Infectious Disease" }
+          ],
+          "payee_id": "5fdc58392d39aae137f82789",
+          "fees": "₹ 500",
+          "fee range": "200-500",
+          "time_of_day": ["Morning (Before 12PM)", "Afternoon (12PM - 4PM)", "Evening (After 4PM)"],
+          "searchtags": [],
+          "experience": "47 Years of experience",
+          "languages": ["English", "Hindi", "Marathi"],
+          "is_opt_for_listing": true,
+          "clinic": {
+            "name": "Kulkarni S G Clinic",
+            "address": { "locality": "Viman Nagar", "location": "73.91136158801281,18.565449800539376" }
+          },
+          "offers": [],
+          "ctas": [{ "type": "BOOK-IN CLINIC", "data": { "mode_of_payment": "PAY_ONLINE" } }],
+          "video_consult": true,
+          "in_clinic": true,
+          "inClinic_distance": 8.20897547493407,
+          "is_verified": false,
+          "qualifications": [
+            { "degree_type": 1, "degree": "MBBS" },
+            { "degree_type": 3, "degree": "MD - Medicine" }
+          ],
+          "prime": false,
+          "badges": [{ "type": "Verified Doctors" }],
+          "teleconsultation_fees": "₹ 500",
+          "telemed_fee": 500,
+          "earliest_slot_in_minutes": 6,
+          "next_available_slot": "",
+          "gender": "MALE",
+          "no_vouchers": false,
+          "no_products": false,
+          "image_score": 85
+        }
+      ]
+    },
+    "meta_data": { "total_records": 7626, "page": 1, "size": 10 }
+  },
+  "is_success": true
+}
