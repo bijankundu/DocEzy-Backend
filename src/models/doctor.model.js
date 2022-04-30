@@ -31,7 +31,7 @@ const doctorSchema = mongoose.Schema(
     },
     isEmailVerified: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     doctor_id: {
       type: String,
@@ -73,6 +73,10 @@ const doctorSchema = mongoose.Schema(
     age: {
       type: Number,
       required: true,
+    },
+    qualifications: {
+      type: Array,
+      default: [],
     },
   },
   { timestamps: true }

@@ -3,8 +3,9 @@ const colors = require("colors");
 const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
-const mongoose = require("mongoose");
 const morgan = require("morgan");
+
+const connectDb = require("./config/connectDb");
 
 const routes = require("./routes");
 
@@ -32,14 +33,7 @@ app.use("/api", routes);
 
 const PORT = process.env.PORT || 5000;
 
-const mongoDbOptions = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-};
-
-mongoose.connect(process.env.MONGODB_URL, mongoDbOptions).then(() => {
-  console.log(colors.cyan("Connected to MongoDB"));
-
+connectDb().then(() => {
   app.listen(PORT, () => {
     console.log(colors.magenta(`Server running on port ${PORT}`));
   });
