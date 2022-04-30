@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
+    "start": "node src",
+    "dev": "nodemon src",
+    "data:generate": "node src/seeder",
+    "data:destroy": "node src/seeder -d",
     "test": "jest",
     "test-w": "jest --watchAll"
   },
@@ -33,7 +35,6 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^6.2.0",
-    "@ngneat/falso": "^3.1.0",
     "colors": "^1.4.0",
     "jest": "^27.5.1",
     "morgan": "^1.10.0",
