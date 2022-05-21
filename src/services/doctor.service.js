@@ -10,11 +10,19 @@ const createDoctor = async (userBody) => {
 };
 
 const getDoctorById = async (id) => {
-  return Doctor.findOne(id);
+  return Doctor.findOne({ _id: id });
 };
 
 const getDoctorByEmail = async (email) => {
   return Doctor.findOne({ email });
 };
 
-module.exports = { createDoctor, getDoctorById, getDoctorByEmail };
+const getAllDoctors = async () => {
+  return Doctor.find({});
+};
+
+const getDoctorsBySpecialist = async (specialist) => {
+  return Doctor.find({ specialities: specialist });
+};
+
+module.exports = { createDoctor, getDoctorById, getDoctorByEmail, getAllDoctors, getDoctorsBySpecialist };

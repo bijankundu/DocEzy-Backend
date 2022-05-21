@@ -4,6 +4,7 @@ const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
 const morgan = require("morgan");
+const cookieParser = require("cookie-parser");
 
 const connectDb = require("./config/connectDb");
 
@@ -25,6 +26,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // enable cors
 app.use(cors());
+
+//parse cookies from incomming requests
+app.use(cookieParser());
 
 //morgan request logger
 if (app.get("env") !== "production") app.use(morgan("dev"));

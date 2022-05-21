@@ -15,7 +15,7 @@ const register = catchAsync(async (req, res) => {
     user = await userService.createUser(req.body);
   }
 
-  const { refresh, access: accessToken } = await tokenService.generateAuthTokens(user);
+  const { refresh, access: accessToken } = await tokenService.generateAuthTokens(user._id);
 
   res.cookie("REFRESH_TOKEN", JSON.stringify(refresh.token), {
     secure: process.env.NODE_ENV !== "development",
@@ -34,7 +34,7 @@ const login = catchAsync(async (req, res) => {
 
   const user = await authService.loginUserWithEmailAndPassword(email, password, userType);
 
-  const { refresh, access: accessToken } = await tokenService.generateAuthTokens(user);
+  const { refresh, access: accessToken } = await tokenService.generateAuthTokens(user._id);
 
   res.cookie("REFRESH_TOKEN", JSON.stringify(refresh.token), {
     secure: process.env.NODE_ENV !== "development",
@@ -45,4 +45,20 @@ const login = catchAsync(async (req, res) => {
   res.status(httpStatus.OK).send({ user, accessToken });
 });
 
-module.exports = { register, login };
+const refreshAccessToken = catchAsync(async (req, res) => {
+  const refreshToken = req.cookies["REFRESH_TOKEN"]?.replaceAll('"', "");
+  try {
+    if (!refreshToken) throw new Error("Token not found");
+
+    const decodedToken = tokenService.verifyToken(refreshToken);
+    if (!decodedToken) throw new Error("Invalid Token");
+
+    const { access: accessToken } = await tokenService.generateAuthTokens(decodedToken.userId);
+
+    res.status(httpStatus.OK).send({ accessToken });
+  } catch (error) {
+    res.status(httpStatus.UNAUTHORIZED).send({ message: error.message });
+  }
+});
+
+module.exports = { register, login, refreshAccessToken };

@@ -10,7 +10,7 @@ const createUser = async (userBody) => {
 };
 
 const getUserById = async (id) => {
-  return User.findOne(id);
+  return User.findOne({ _id: id });
 };
 
 const getUserByEmail = async (email) => {

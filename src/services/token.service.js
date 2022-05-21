@@ -13,12 +13,12 @@ const generateToken = (userId, expires, type, secret = process.env.JWT_SECRET) =
   return jwt.sign(payload, secret);
 };
 
-const generateAuthTokens = async (user) => {
+const generateAuthTokens = async (userId) => {
   const accessTokenExpires = dayjs().add(process.env.JWT_ACCESS_EXPIRATION_MINUTES, "minutes");
-  const accessToken = generateToken(user._id, accessTokenExpires, tokenTypes.ACCESS);
+  const accessToken = generateToken(userId, accessTokenExpires, tokenTypes.ACCESS);
 
   const refreshTokenExpires = dayjs().add(process.env.JWT_REFRESH_EXPIRATION_DAYS, "days");
-  const refreshToken = generateToken(user._id, refreshTokenExpires, tokenTypes.REFRESH);
+  const refreshToken = generateToken(userId, refreshTokenExpires, tokenTypes.REFRESH);
 
   return {
     access: {
@@ -32,4 +32,12 @@ const generateAuthTokens = async (user) => {
   };
 };
 
-module.exports = { generateAuthTokens };
+const verifyToken = (token) => {
+  try {
+    return jwt.verify(token, process.env.JWT_SECRET);
+  } catch (error) {
+    return;
+  }
+};
+
+module.exports = { generateAuthTokens, verifyToken };
