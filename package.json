@@ -31,7 +31,7 @@
     "helmet": "^5.0.1",
     "http-status": "^1.5.0",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^6.11.3",
+    "mongoose": "^6.12.0",
     "validator": "^13.7.0"
   },
   "devDependencies": {
